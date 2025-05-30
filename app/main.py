@@ -7,6 +7,4 @@ app = FastAPI()
 def root():
     return {"output":"WELOCOME TO HOME PAGE"}
 
-@app.get("/name")
-def get_name():
-    return {"HELLO MY NAME IS SAMUEL!!!"}
+
