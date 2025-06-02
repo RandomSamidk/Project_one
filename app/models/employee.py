@@ -14,10 +14,11 @@ def create_employee(username: str, password: str):
     hashed_password = bcrypt.hashpw(password_bytes, salt).decode('utf-8')
     #insering new employee into the database
     try: 
-        cursor=database.get_cursor()
+        conn = database.get_connection()
+        cursor=conn.cursor()
         query = "INSERT INTO employee (username, password) VALUES (%s,%s)"
         cursor.execute(query,(username,hashed_password))
-        cursor.connection.commit()
+        conn.commit()
         return cursor.lastrowid
     except Exception as e:
         print("Error found : ",e)
