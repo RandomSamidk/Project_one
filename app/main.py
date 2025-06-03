@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-import requests
 from app.controllers.employee import router as employee_router
 
 app = FastAPI()

@@ -1,8 +1,7 @@
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, HTTPException
 from ..models.employee import create_employee,UserCreate,UserLogin,get_password_from_username,verify_password
 from ..utils.response_wrapper import api_response
 from ..utils.jwt_handler import create_access_token
-import requests
 
 
 router = APIRouter()
