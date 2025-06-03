@@ -18,7 +18,7 @@ def create_new_employee(user: UserCreate):
     
 
 #LOGIN AND AUTHENTICATION
-@router.get("/login/")
+@router.post("/login/")
 def login(user: UserLogin ):
     user_row = get_password_from_username(user.username)
     if user_row is None:
