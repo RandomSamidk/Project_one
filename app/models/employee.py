@@ -2,7 +2,6 @@
 from pydantic import BaseModel
 from ..database import database
 import bcrypt
-import jwt
 
 class UserCreate(BaseModel):
     username : str 
@@ -53,5 +52,3 @@ def verify_password(password: str, hashed_password: str) ->bool:
     password_bytes = password.encode('utf-8') # converting password to array of bytes
     hashed_password_bytes = hashed_password.encode('utf-8')
     return bcrypt.checkpw(password_bytes,hashed_password_bytes)
-
-#def create_access_token()

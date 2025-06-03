@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException, Depends
 from ..models.employee import create_employee,UserCreate,UserLogin,get_password_from_username,verify_password
 from ..utils.response_wrapper import api_response
+from ..utils.jwt_handler import create_access_token
 import requests
 
 
@@ -18,12 +19,15 @@ def create_new_employee(user: UserCreate):
     
 
 #LOGIN AND AUTHENTICATION
-@router.post("/login/")
+@router.post("/employee_login/")
 def login(user: UserLogin ):
     user_row = get_password_from_username(user.username)
     if user_row is None:
         raise HTTPException(status_code=401, detail="Invalid username or password")
     if not verify_password(user.password,user_row["password"]):
         raise HTTPException(status_code=401, detail="Invalid username or password")
-    return api_response({"emp_id": user_row["emp_id"],"username": user_row["username"]},"Login successful",True)
+    
+    token = create_access_token({"emp_id": user_row["emp_id"],"username": user_row["username"]})
+    
+    return api_response({"access token": token},"Login successful and Access token generated",True)
         
