@@ -52,3 +52,8 @@ def verify_password(password: str, hashed_password: str) ->bool:
     password_bytes = password.encode('utf-8') # converting password to array of bytes
     hashed_password_bytes = hashed_password.encode('utf-8')
     return bcrypt.checkpw(password_bytes,hashed_password_bytes)
+
+
+
+class UserToken(BaseModel):
+    token : str
