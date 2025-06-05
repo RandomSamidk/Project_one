@@ -12,7 +12,7 @@ ALGORITHM = os.getenv('algorithm')
 
 def create_access_token(data: dict, expires_delta: timedelta | None = None) -> str:
     payload = data.copy()
-    expire = datetime.now(timezone.utc) + (expires_delta or timedelta(minutes=15))
+    expire = datetime.now(timezone.utc) + (expires_delta or timedelta(minutes=30))
     payload.update({"exp": expire})
     token = jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
     return token
