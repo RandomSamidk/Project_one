@@ -1,0 +1,10 @@
+# docker-compose.yml
+services:
+  api:
+    image: project_one_api:latest
+    container_name: project_one_api
+    ports:
+      - "8000:8000"
+    env_file:
+      - app/.env         # add DB_URL, JWT_SECRET, etc.
+    restart: unless-stopped

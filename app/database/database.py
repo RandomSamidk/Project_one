@@ -1,7 +1,7 @@
 import mysql.connector
 
 DATABASE_CONFIG={
-    'host': 'localhost',
+    'host': 'host.docker.internal',
     'user': 'root',
     'password': 'user123',
     'database': 'Hifx',

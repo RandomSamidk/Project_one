@@ -1,0 +1,46 @@
+# .dockerignore
+
+# Git
+.git
+.gitignore
+
+# Python virtual environment
+.venv
+venv/
+env/
+*/activate
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE / Editor specific
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Secrets / Local config (should be passed via environment variables)
+.env
+*.env
+config.local.yaml
+
+# Test reports
+htmlcov/
+.pytest_cache/
+.coverage
+*.cover
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Docker specific (if any)
+Dockerfile
+docker-compose.yml
